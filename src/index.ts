@@ -1,5 +1,6 @@
 import { Elysia,t } from "elysia";
 import { createUser } from './db/queries/insert.js';
+import { todosLosUsuarios } from "./db/queries/select.js";
 //import db from './db/index.js';
 
 const getFunction = () => {
@@ -11,6 +12,7 @@ const app = new Elysia()
   .get('/id/:id', ({ params: {id} })=> `Hello ${id}`)
   .get('/saludo', ()=>{return 'hi';})
   .get('/personal', ({ error }) => error(404, "Kirifuji Nagisa"))
+  .get('/usuarios', () => todosLosUsuarios())
   .post('/hi', () => 'hi')
   .post('/user', ({ body }) => createUser(body), {
     body: t.Object({
