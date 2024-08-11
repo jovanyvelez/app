@@ -4,6 +4,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --watch src/index.ts",
+    "start": "NODE_ENV=production bun src/index.ts",
     "generate": "drizzle-kit generate:sqlite",
 		"migrate": "drizzle-kit push:sqlite",
 		"studio": "drizzle-kit studio"
